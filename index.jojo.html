@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login Google</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial;
+        }
+
+        body{
+            background:purple;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+        }
+
+        .celular{
+            width:380px;
+            height:800px;
+            background:black;
+            border-radius:60px;
+            padding:8px;
+        }
+
+        .tela{
+            width:100%;
+            height:100%;
+            background:white;
+            border-radius:55px;
+            position:relative;
+            overflow:hidden;
+        }
+
+        .camera{
+            width:130px;
+            height:35px;
+            background:black;
+            border-radius:30px;
+
+            position:absolute;
+            top:10px;
+            left:120px;
+        }
+
+        .hora{
+            position:absolute;
+            top:20px;
+            left:25px;
+            font-weight:bold;
+        }
+
+        .pagina{
+            padding:100px 25px;
+        }
+
+        .logo{
+            font-size:50px;
+            margin-bottom:20px;
+        }
+
+        h1{
+            margin-bottom:10px;
+        }
+
+        p{
+            margin-bottom:30px;
+            color:gray;
+        }
+
+        input{
+            width:100%;
+            padding:15px;
+            margin-bottom:20px;
+            font-size:16px;
+        }
+
+        .botaoArea{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .link{
+            color:blue;
+            cursor:pointer;
+        }
+
+        button{
+            background:blue;
+            color:white;
+            border:none;
+            padding:12px 25px;
+            border-radius:20px;
+            cursor:pointer;
+        }
+
+        #pagina2,
+        #pagina3{
+            display:none;
+        }
+
+        #erro{
+            color:red;
+            margin-top:20px;
+        }
+
+        .topoEmail{
+            padding:90px 20px 20px;
+            font-size:30px;
+            font-weight:bold;
+        }
+
+        .caixaEmail{
+            padding:20px;
+            border-bottom:1px solid #ddd;
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+
+<div class="celular">
+
+    <div class="tela">
+
+        <div class="camera"></div>
+
+        <div class="hora">
+            14:53
+        </div>
+
+
+
+        <!-- PAGINA EMAIL -->
+
+        <div class="pagina" id="pagina1">
+
+            <div class="logo">G</div>
+
+            <h1>Fazer login</h1>
+
+            <p>Use sua Conta Google</p>
+
+            <input
+                    type="text"
+                    id="email"
+                    placeholder="Digite seu email"
+            >
+
+            <div class="botaoArea">
+
+                <div class="link">
+                    Criar conta
+                </div>
+
+                <button onclick="proximaPagina()">
+                    Avançar
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+
+        <!-- PAGINA SENHA -->
+
+        <div class="pagina" id="pagina2">
+
+            <div class="logo">G</div>
+
+            <h1>Digite sua senha</h1>
+
+            <p id="mostrarEmail"></p>
+
+            <input
+                    type="password"
+                    id="senha"
+                    placeholder="Digite sua senha"
+            >
+
+            <div class="botaoArea">
+
+                <div
+                        class="link"
+                        onclick="voltarPagina()">
+                    Voltar
+                </div>
+
+                <button onclick="fazerLogin()">
+                    Entrar
+                </button>
+
+            </div>
+
+            <div id="erro"></div>
+
+        </div>
+
+
+
+
+        <!-- PAGINA GMAIL -->
+
+        <div id="pagina3">
+
+            <div class="topoEmail">
+                Gmail
+            </div>
+
+            <div class="caixaEmail">
+                Google Segurança
+            </div>
+
+            <div class="caixaEmail">
+                Faculdade
+            </div>
+
+            <div class="caixaEmail">
+                Banco
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+</div>
+
+
+
+
+<script>
+
+    function proximaPagina(){
+
+        let email =
+            document.getElementById("email").value;
+
+
+        if(email == "pedro@gmail.com"){
+
+            document.getElementById("pagina1").style.display = "none";
+
+            document.getElementById("pagina2").style.display = "block";
+
+            document.getElementById("mostrarEmail").innerHTML = email;
+
+        }
+
+    }
+
+
+
+    function voltarPagina(){
+
+        document.getElementById("pagina2").style.display = "none";
+
+        document.getElementById("pagina1").style.display = "block";
+
+    }
+
+
+
+    function fazerLogin(){
+
+        let senha =
+            document.getElementById("senha").value;
+
+
+        if(senha == "121206"){
+
+            document.getElementById("pagina2").style.display = "none";
+
+            document.getElementById("pagina3").style.display = "block";
+
+        }
+
+        else{
+
+            document.getElementById("erro").innerHTML =
+                "Senha errada";
+
+        }
+
+    }
+
+</script>
+
+
+
+</body>
+</html>
